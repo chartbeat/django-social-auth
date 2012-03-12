@@ -30,7 +30,7 @@ class UserSocialAuth(models.Model):
     # issues while trying to delete a user object, because of cascading and
     # because we dont have the social_auth table in the db. This model
     # is not being used at all for our use case.
-    user = models.Integer()
+    user = models.IntegerField()
     provider = models.CharField(max_length=32)
     uid = models.CharField(max_length=255)
     extra_data = JSONField(blank=True)
