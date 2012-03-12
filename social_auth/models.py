@@ -24,7 +24,13 @@ else:
 
 class UserSocialAuth(models.Model):
     """Social Auth association model"""
-    user = models.ForeignKey(User, related_name='social_auth')
+    #user = models.ForeignKey(User, related_name='social_auth')
+    #
+    # Hacky, but remove the foreign key dependency to User as that causes
+    # issues while trying to delete a user object, because of cascading and
+    # because we dont have the social_auth table in the db. This model
+    # is not being used at all for our use case.
+    user = models.Integer()
     provider = models.CharField(max_length=32)
     uid = models.CharField(max_length=255)
     extra_data = JSONField(blank=True)
