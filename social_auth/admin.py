@@ -26,6 +26,10 @@ if setting('SOCIAL_AUTH_MODELS') in (None, 'social_auth.db.django_models'):
         list_filter = ('assoc_type',)
         search_fields = ('server_url',)
 
-    admin.site.register(UserSocialAuth, UserSocialAuthOption)
-    admin.site.register(Nonce, NonceOption)
-    admin.site.register(Association, AssociationOption)
+    """
+    CB_Comment, eytan: Do not register social_auth models to admin, since
+    it causes problems, and we do not use these models
+    """
+    #admin.site.register(UserSocialAuth, UserSocialAuthOption)
+    #admin.site.register(Nonce, NonceOption)
+    #admin.site.register(Association, AssociationOption)
