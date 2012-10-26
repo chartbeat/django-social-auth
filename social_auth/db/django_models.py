@@ -28,7 +28,7 @@ class UserSocialAuth(models.Model, UserSocialAuthMixin):
     User = UserModel
     #user = models.ForeignKey(User, related_name='social_auth')
     #
-    # Hacky, but remove the foreign key dependency to User as that causes
+    # [CB_Comment, eytan] Hacky, but remove the foreign key dependency to User as that causes
     # issues while trying to delete a user object, because of cascading and
     # because we dont have the social_auth table in the db. This model
     # is not being used at all for our use case.
