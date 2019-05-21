@@ -1,10 +1,10 @@
 """URLs module"""
-from django.conf.urls import patterns, url
+from django.conf.urls import url
 
 from social_auth.views import auth, complete, disconnect
 
 
-urlpatterns = patterns('',
+urlpatterns = [
     # authentication
     url(r'^login/(?P<backend>[^/]+)/$', auth,
         name='socialauth_begin'),
@@ -24,4 +24,4 @@ urlpatterns = patterns('',
         name='socialauth_disconnect'),
     url(r'^disconnect/(?P<backend>[^/]+)/(?P<association_id>[^/]+)/$',
         disconnect, name='socialauth_disconnect_individual'),
-)
+]
