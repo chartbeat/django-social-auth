@@ -8,7 +8,12 @@ class JSONField(models.TextField):
     """Simple JSON field that stores python structures as JSON strings
     on database.
     """
-    __metaclass__ = models.SubfieldBase
+    def from_db_value(self, value, expression, connection, context):
+        """
+        Convert from db value to python structure. 
+
+        """
+        return self.to_python(value)
 
     def to_python(self, value):
         """
